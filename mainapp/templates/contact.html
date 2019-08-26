@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block menu %}
 
+{% block menu %}
 <div class="hero">
 			<div class="header clearfix">
-				<a href="/" class="logo"></a>
+				<a href="{% url 'main'%}" class="logo"></a>
 				<ul class="menu">
-					<li><a href="/">домой</a></li>
-					<li><a href="{% url 'products'%}">продукты</a></li>
+					<li><a href="{% url 'main'%}">домой</a></li>
+					<li><a href="{% url 'products_all'%}">продукты</a></li>
 					<li><a href="{% url 'contact'%}" class="active">контакты</a></li>
 				</ul>
 				<a href="#" class="search"></a>
