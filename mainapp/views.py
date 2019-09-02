@@ -1,29 +1,28 @@
 import json
 from django.shortcuts import render
-
-
-# Create your views here.
+import datetime
+from .models import ProductCategory, Product
 
 
 def main(request):
+    products = Product.objects.all()
+    title = 'главная'
     context = {
-        'title': 'Главная'
+        'title': title,
+        'products': products
     }
     return render(request, 'index.html', context=context)
 
 
-def products(request):
-    links_menu = [
-        {'href': 'products_all', 'name': 'все'},
-        {'href': 'products_home', 'name': 'дом'},
-        {'href': 'products_office', 'name': 'офис'},
-        {'href': 'products_modern', 'name': 'модерн'},
-        {'href': 'products_classic', 'name': 'классик'},
-    ]
+def products(request, pk=None):
+    print(pk)
+
+    links_menu = ProductCategory.objects.all()
+    same_products = Product.objects.all()
     context = {
         'title': 'Продукты',
         'links_menu': links_menu,
-        # 'same_products': same_products,
+        'same_products': same_products,
     }
     return render(request, 'products.html', context=context)
 
