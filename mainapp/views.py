@@ -1,6 +1,5 @@
 import json
 from django.shortcuts import render
-import datetime
 from .models import ProductCategory, Product
 
 
